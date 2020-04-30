@@ -3,7 +3,7 @@
 This project is inspired by [this](https://stackabuse.com/pytesseract-simple-python-optical-character-recognition/) blog post.
 It is an effort to build a simple Python OCR application served by a flask web app. It makes use of [pytesseract] (https://pypi.org/project/pytesseract/) which is a wrapper
 for [Google's Tesseract-OCR ENgine](https://github.com/tesseract-ocr/tesseract). Future work on this will continue to make the application more robust providing more options as well as
-improving on the OCR Engine.
+improving on the OCR Engine. Might add preprocessing steps before passing the image to tesseract.
 
 ## DEvelopment Environment
 
