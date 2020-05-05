@@ -3,12 +3,14 @@
 {% block title %} Index {% endblock %}
 
 {% block content %}
-  <h1>Handwriting Recognition Program</h1>
-  Welcome to the Handwriting OCR Project. Follow the following instructions:
-  <ol type="1">
+  <h1 class="title">Handwriting Recognition Program</h1>
+  <p class="foreword">Welcome to the Handwriting OCR Project. Follow the following instructions:</p>
+  <ol type="1" class="list">
     <li>Click on the <i>Upload</i> link above</li>
     <li>Choose File to Upload</li>
     <li>Click the Upload Button</li>
     <li>When a preview of the uploaded image loads, you should see text read from the image besides it</li>
   </ol>
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
 {% endblock %}

@@ -2,34 +2,31 @@
 
 {% block title %} Upload Image {% endblock %}
 {% block content%}
-
-   {% if msg %}
-   <h1>{{ msg }}</h1>
-   {% endif %}
-  
-   <h1>Upload new File</h1>
-  
-   <form method=post enctype=multipart/form-data>
-      <div>
-        <label for="imageFile">Select Image:</label>
+  <div class="content-flex">
+    <div class="left side-side ">
+      <h2>Upload File</h2>
+      <form method=post enctype=multipart/form-data>
         <input type=file name=file accept="image/*" id="imageFile">
+        <img id="preview" src="#" alt="preview image" class="hidden"/>
+        <p id="helpText">Drag your file here or click to upload</p>
+        <button type=submit>Upload </button>
+      </form>
+    </div>
+
+    <div class="right side-side">
+      <h2>Result:</h2>
+      <div class="textResult">
+        {% if extracted_text %}
+          <h4> The extracted text from the image above is:</h4>
+            <p><b> {{ extracted_text }} </b></p>
+        
+        {% else %}
+          <h4>The extracted text will be displayed here</h4>
+        {% endif %}
       </div>
-
-      <div>
-        <input type=submit value=Upload>
-      </div>
-
-   </form>
-
-   <h1>Result:</h1>
-   {% if img_src %}
-     <img src="{{ img_src }}" width="400" height="500">
-   {% endif %}
-  
-   {% if extracted_text %}
-     <p> The extracted text from the image above is: <b> {{ extracted_text }} </b></p>
-  
-   {% else %}
-     The extracted text will be displayed here
-   {% endif %}
+    </div>
+  </div>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/upload.css') }}">
+  <script type="text/javascript"
+        src="{{ url_for('static', filename='js/upload.js') }}"></script>
 {% endblock %}

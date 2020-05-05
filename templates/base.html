@@ -1,6 +1,8 @@
 <html>
 <head>
 <link rel="flask" href="/static/favicon.ico" type="image/x-icon">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/base.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 {% if title %}
     <title>{{ title }} - OCR</title>
 {% else %}
@@ -8,19 +10,24 @@
 {% endif %}
 </head>
 <body>
-    <section id="navbar">
+    <section id="navbar" class="container">
       <a href="/">Home</a>
       <a href="/upload">Upload</a>
     </section>
     
     <hr>
-    <section id="content">
+
+    {% if msg %}
+      <h3>{{ msg }}</h3>
+    {% endif %}
+    
+    <section id="content" class="container">
       {% block content %}
       {% endblock %}
     </section>
 
     <hr>
-    <section id="footer">
+    <section id="footer" class="container">
       {% block footer %}
       &copy; Copyright 2020 by <a href="https://github.com/thoth-ky">Thoth</a>.
       {% endblock %}
